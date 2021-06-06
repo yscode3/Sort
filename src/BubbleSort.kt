@@ -3,6 +3,7 @@ import java.util.ArrayList
 /**
  * 버블 정렬(Bubble Sort)
  * 정렬되는 모습이 거품과 비슷해서 붙여진 이름.
+ * 인접한 두 수를 비교해서 자리를 교환.
  * 정렬시간 : O(n^2)
  */
 fun main() {

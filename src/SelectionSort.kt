@@ -1,6 +1,7 @@
 /**
  * 선택 정렬(Selection Sort)
- *
+ * 수열에서 가장 작은 요소를 선택, 매 회 가장 앞으로 자리 교환.
+ * 정렬시간 : O(n^2)
  */
 fun main() {
     val arrNums = arrayListOf(30, 20, 10, 40, 50)
