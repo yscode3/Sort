@@ -32,10 +32,10 @@ fun insertSort(nums: ArrayList<Int>) {
         lastIdx = i
 
         while ((lastIdx > 0) && (nums[lastIdx-1] > temp)) {
-            nums[lastIdx] = nums[lastIdx-1]
+            nums[lastIdx] = nums[lastIdx-1]     //자리를 하나씩 뒤로 미룬다.
             lastIdx--
         }
 
-        nums[lastIdx] = temp
+        nums[lastIdx] = temp        //빈 자리에 값을 삽입한다.
     }
 }
