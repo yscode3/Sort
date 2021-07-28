@@ -1,35 +1,65 @@
 package practice_01
 
-private val nums by lazy {
-    mutableListOf(77, 99, 22, 111)
-}
+import GetRandomNumbers
 
 fun main() {
+    var nums = GetRandomNumbers().getNumbers() as MutableList<Int>
     println("정렬 전 : $nums")
 
-    mergeSort(nums, 0, nums.size - 1)
+    var data = mergeSort(nums)
 
-    println("정렬 후 : $nums")
+    println("정렬 후 : $data")
 }
 
-private fun mergeSort(nums:MutableList<Int>, start: Int, end: Int) {
-    var mid = (start + end) / 2
-
-    merge(separate(nums, start, mid), separate(nums, mid+1, end))
+private fun mergeSort(nums: MutableList<Int>): List<Int> {
+    return separate(nums)
 }
 
-private fun separate(nums:MutableList<Int>, start: Int, end: Int) : MutableList<Int> {
+private fun separate(nums: List<Int>): List<Int> {
+    if (nums.size <= 1) {
+        return nums
+    }
+
+    var mid = nums.size / 2
+
+    var left = nums.filterIndexed { index, _ ->
+        index < mid
+    }
+    var right = nums.filterIndexed { index, _ ->
+        index >= mid
+    }
+
+    return merge(separate(left), separate(right))
+}
+
+private fun merge(left: List<Int>, right: List<Int>): List<Int> {
+    var lIdx = 0
+    var rIdx = 0
     var list = mutableListOf<Int>()
-    if (nums.size == 1) {
-        return list
+
+    // case1, left와 right 의 값이 아직 남아 있을 때,
+    while (left.size > lIdx && right.size > rIdx) {
+        if (left[lIdx] > right[rIdx]) {
+            list.add(right[rIdx])
+            rIdx++
+        }
+        else {
+            list.add(left[lIdx])
+            lIdx++
+        }
     }
 
-    var mid = (start + end) / 2
-    for (i in start until mid) {
-        list.add(nums[i])
+    // case2, left 만 남아있을 때,
+    while (left.size > lIdx) {
+        list.add(left[lIdx])
+        lIdx++
     }
-}
 
-private fun merge(separate: MutableList<Int>, separate1: MutableList<Int>) {
-    
+    // case3, right 만 남아있을 때,
+    while (right.size > rIdx) {
+        list.add(right[rIdx])
+        rIdx++
+    }
+
+    return list
 }

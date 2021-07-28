@@ -22,7 +22,7 @@ fun main() {
     nums.forEach { print("${it} ")}
 }
 
-fun insertSort(nums: ArrayList<Int>) {
+private fun insertSort(nums: ArrayList<Int>) {
     var startIdx = 1
     var lastIdx = 0
     var temp = 0
