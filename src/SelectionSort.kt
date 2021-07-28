@@ -34,16 +34,16 @@ private class SelectionSort(var arrNums: ArrayList<Int>) {
             }
 
             //가장 앞자리 인덱스와, 가장 작은 수의 인덱스를 전달해, 두 값의 위치를 바꾼다.
-            changePosition(arrNums, min, i)
+            changePosition(min, i)
         }
 
         return arrNums
     }
 
-    private fun changePosition(nums: ArrayList<Int>, min: Int, i: Int) {
+    private fun changePosition(min: Int, i: Int) {
         var temp:Int
-        temp = nums[min]
-        nums[min] = nums[i]
-        nums[i] = temp
+        temp = arrNums[min]
+        arrNums[min] = arrNums[i]
+        arrNums[i] = temp
     }
 }

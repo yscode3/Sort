@@ -25,7 +25,7 @@ fun main() {
 }
 
 //오름차순으로 정렬
-fun sort(arrNum: ArrayList<Int>) {
+private fun sort(arrNum: ArrayList<Int>) {
     var temp = 0
     for (i in arrNum) {     //배열 크기 만큼 반복
         for (j in 0 until arrNum.size-1) {
